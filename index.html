@@ -6,12 +6,13 @@
 	<script src="./script.js" ></script>
 	</head>
 	<body>
-		<div class="header" style="height: 100px; width: 100%; background-color: coral" >
-			HEADER
+		<div class="header" style="height: 100px; width: 100%; background-color: coral" id="header" >
+			<input style="width: 100%" id="link-input" type="text" name="link" value="http://localhost:5173/?sessionId=edvinas&orgUuid=17278873-1ab7-fc60-4603-d239f3e216bb/#/live-match">
+			<button onclick="createIFrame()">CHANGE URL</button>
 		</div>
-		<iframe src="http://localhost:5173/?sessionId=edvinas&orgUuid=17278873-1ab7-fc60-4603-d239f3e216bb/#/live-match" id="iframe" style="width: 100%" frameborder="0"> </iframe>
 		<div class="footer" style="height: 250px; width: 100%; background-color: beige" >
 			FOOTER
 		</div>
+		<script>createIFrame()</script>
 	</body>
 </html>

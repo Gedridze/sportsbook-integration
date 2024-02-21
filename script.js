@@ -58,3 +58,19 @@ function handleScroll () {
 	sendViewPortInfo();
 }
 
+function createIFrame() {
+	let iFrame = document.getElementById('iframe');
+	if (iFrame) {
+		iFrame.remove();
+	}
+	iFrame = document.createElement('iframe');
+	const url = document.getElementById('link-input').value;
+	iFrame.src = url;
+	iFrame.id = 'iframe';
+	iFrame.style = 'width: 100%'
+	iFrame.frameBorder = 0;
+	document.getElementById('header').after(iFrame);
+	window.iFrameResize({log: false}, '#iframe') // Onload logic for IFrame init
+}
+
+
