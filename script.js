@@ -18,7 +18,7 @@
 	}
 }) */
 
-const clientUrl = 'http://https://sp-907-sticky-overlay.sportsbook-iframe.dev.advbet.com/';
+const clientUrl = 'https://sp-907-sticky-overlay.sportsbook-iframe.dev.advbet.com';
 const script = document.createElement('script');
 script.onload = function () {
 	window.iFrameResize({log: false}, '#iframe') // Onload logic for IFrame init
