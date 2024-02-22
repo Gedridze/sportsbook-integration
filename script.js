@@ -70,7 +70,7 @@ function createIFrame() {
 	iFrame.style = 'width: 100%'
 	iFrame.frameBorder = 0;
 	document.getElementById('header').after(iFrame);
-	window.iFrameResize({log: true, checkOrigin: false}, '#iframe') // Onload logic for IFrame init
+	window.iFrameResize({log: false, checkOrigin: false}, '#iframe') // Onload logic for IFrame init
 }
 
 
