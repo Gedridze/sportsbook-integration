@@ -24,7 +24,6 @@ script.onload = function () {
 	window.iFrameResize({log: false}, '#iframe') // Onload logic for IFrame init
 }
 
-script.type = 'text/javascript';
 script.src = `${clientUrl}/iframeResizer.min.js?${Date.now()}`;
 document.head.appendChild(script)
 function updateIframeHeight(height) {
