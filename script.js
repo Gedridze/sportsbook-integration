@@ -72,5 +72,3 @@ function createIFrame() {
 	document.getElementById('header').after(iFrame);
 	window.iFrameResize({log: false, checkOrigin: false}, '#iframe') // Onload logic for IFrame init
 }
-
-
