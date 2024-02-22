@@ -21,7 +21,7 @@
 const clientUrl = 'https://sp-907-sticky-overlay.sportsbook-iframe.dev.advbet.com/';
 const script = document.createElement('script');
 script.onload = function () {
-	window.iFrameResize({log: false}, '#iframe') // Onload logic for IFrame init
+	window.iFrameResize({log: false, checkOrigin: false}, '#iframe') // Onload logic for IFrame init
 }
 
 script.src = `${clientUrl}/iframeResizer.min.js?${Date.now()}`;
