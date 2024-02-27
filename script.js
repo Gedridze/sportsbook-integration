@@ -18,7 +18,7 @@
 	}
 }) */
 
-const clientUrl = 'https://sp-907-sticky-overlay.sportsbook-iframe.dev.advbet.com/';
+const clientUrl = 'https://sp-907-sticky-overlay.sportsbook-iframe.dev.advbet.com';
 const script = document.createElement('script');
 script.onload = function () {
 	createIFrame()
@@ -67,8 +67,8 @@ function createIFrame() {
 	iFrame = document.createElement('iframe');
 	iFrame.src = url;
 	iFrame.id = 'iframe';
-	iFrame.style = 'width: 100%'
+	iFrame.style = 'width: 100%; margin-top: 100px;'
 	iFrame.frameBorder = 0;
 	document.getElementById('header').after(iFrame);
-	window.iFrameResize({log: false, checkOrigin: false}, '#iframe') // Onload logic for IFrame init
+	window.iFrameResize({log: false, checkOrigin: false, stickyHeaderHeight: 100}, '#iframe') // Onload logic for IFrame init
 }
