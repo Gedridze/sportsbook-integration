@@ -18,7 +18,7 @@
 	}
 }) */
 
-const clientUrl = 'https://sp-907-sportsbook-integration.sportsbook-iframe.dev.advbet.com';
+const clientUrl = 'https://main.sportsbook-iframe.dev.advbet.com';
 const script = document.createElement('script');
 script.onload = function () {
 	createIFrame()
