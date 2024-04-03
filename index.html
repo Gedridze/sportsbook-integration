@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	    <title>Integration</title>
-	    <link rel="stylesheet" href="style.css" />
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-	<script src="./script.js" ></script>
-	</head>
-	<body style="width: auto; margin: 0;">
-		<div class="header" style="height: 100px; width: 100%; background-color: coral; position: fixed" id="header" >
-			<input style="width: 100%" id="link-input" type="text" name="link" value="http://localhost:5173/?sessionId=edvinas&orgUuid=17278873-1ab7-fc60-4603-d239f3e216bb/#/live-match">
-			<button onclick="createIFrame()">CHANGE URL</button>
-		</div>
-		<div class="footer" style="height: 250px; width: 100%; background-color: beige" >
-			FOOTER
-		</div>
-	</body>
+  <head>
+    <title>Integration</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="./script.js"></script>
+  </head>
+  <body style="width: auto; margin: 0">
+    <div
+      class="header"
+      style="
+        height: 100px;
+        width: 100%;
+        background-color: coral;
+        position: fixed;
+      "
+      id="header"
+    >
+      <input
+        style="width: 100%"
+        id="link-input"
+        type="text"
+        name="link"
+        value="http://localhost:5173/?sessionId=foo&orgUuid=17278873-1ab7-fc60-4603-d239f3e216bb#/special"
+      />
+      <button onclick="createIFrame()">CHANGE URL</button>
+      <div
+        class="odds-button-container"
+      >
+        <button onclick="setOdds('DECIMAL')">Decimal</button>
+        <button onclick="setOdds('FRACTIONAL')">Fractional</button>
+        <button onclick="setOdds('AMERICAN')">American</button>
+        <button onclick="setOdds('HK')">Net decimal</button>
+      </div>
+    </div>
+    <div
+      class="footer"
+      style="height: 250px; width: 100%; background-color: beige"
+    >
+      FOOTER
+    </div>
+  </body>
 </html>
