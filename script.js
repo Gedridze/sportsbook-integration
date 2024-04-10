@@ -76,26 +76,16 @@ function createIFrame() {
 }
 
 function setOdds(string) {
-  const iframeWindow = document.getElementById("iframe").contentWindow;
-  iframeWindow.postMessage(string, "*");
+  const iFrame = document.getElementById("iframe").contentWindow;
+  if (iFrame) {
+    iFrame.postMessage(
+      {
+        topic: "oddsFormat",
+        payload: {
+          format: string,
+        },
+      },
+      "*"
+    );
+  }
 }
-
-// Will be used when creating fallbacks from the iframe
-// function setOdds(string) {
-//   const iframeWindow = document.getElementById("iframe").contentWindow;
-//   if (iframeWindow) {
-//     iframeWindow.postMessage(
-//       {
-//         topic: "oddsFormat",
-//         payload: {
-//           oddsFormat: string,
-//         },
-//       },
-//       "*"
-//     );
-//   }
-// }
-
-// window.addEventListener("message", (e) => {
-//   console.log(e);
-// });
