@@ -80,9 +80,9 @@ function setOdds(string) {
   if (iFrame) {
     iFrame.postMessage(
       {
-        topic: "odds_format_change",
+        topic: "oddsFormat",
         payload: {
-          oddsFormat: string,
+          format: string,
         },
       },
       "*"
