@@ -1,22 +1,17 @@
-/** window.addEventListener("message", (event) => {
+window.addEventListener("message", (event) => {
 	if (event.origin !== 'http://localhost:5173') {
 		return 
 	}
 	switch(event.data.topic) {
-		case 'height_change': 
-			updateIframeHeight(event.data.payload.height);
-			break;
-		case 'get_viewport':
-			sendViewPortInfo();
-			break;
-		case 'subscribe_scroll':
-			subscribeScroll();
-			break;
-		case 'unsubscribe_scroll':
-			unsubscribeScroll();
+		case 'redirect': 
+			redirectPage(event.data.payload.url);
 			break;
 	}
-}) */
+})
+
+function redirectPage(url) {
+  window.location.href = url;
+}
 
 const clientUrl = "https://sportsbook.adv.bet/panel-dev";
 const script = document.createElement("script");
