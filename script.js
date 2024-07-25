@@ -1,7 +1,4 @@
 window.addEventListener("message", (event) => {
-	if (event.origin !== 'http://localhost:5173') {
-		return 
-	}
 	switch(event.data.topic) {
 		case 'redirect': 
 			redirectPage(event.data.payload.url);
