@@ -81,3 +81,16 @@ function setOdds(string) {
     );
   }
 }
+
+function toggleSlip() {
+  const iFrame = document.getElementById("iframe").contentWindow;
+  if (iFrame) {
+    iFrame.postMessage(
+      {
+        topic: "toggleBettingSlip",
+        payload: {},
+      },
+      "*"
+    );
+  }
+}
