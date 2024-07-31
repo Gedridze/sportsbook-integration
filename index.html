@@ -13,13 +13,15 @@
     <div
       class="header"
       style="
-        height: 100px;
+        height: 150px;
         width: 100%;
         background-color: coral;
         position: fixed;
       "
       id="header"
     >
+    <div class="url">
+      
       <input
         style="width: 100%"
         id="link-input"
@@ -28,15 +30,21 @@
         value="http://localhost:5173/?sessionId=foo&orgUuid=17278873-1ab7-fc60-4603-d239f3e216bb#/special"
       />
       <button onclick="createIFrame()">CHANGE URL</button>
-      <div
+    </div>
+      <div class="controls">
+        
+      <fieldset
         class="odds-button-container"
       >
+        <legend>Odds Format</legend>
         <button onclick="setOdds('DECIMAL')">Decimal</button>
         <button onclick="setOdds('FRACTIONAL')">Fractional</button>
         <button onclick="setOdds('AMERICAN')">American</button>
         <button onclick="setOdds('HK')">Net decimal</button>
+      </fieldset>
+      <button class="toggle-slip" onclick="toggleSlip()">Toggle Betting Slip</button>
       </div>
-      <button onclick="toggleSlip()">Toggle Betting Slip</button>
+
     </div>
     <div
       class="footer"

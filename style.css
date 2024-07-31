@@ -19,6 +19,21 @@ iframe {
 .odds-button-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 5px;
   width: 190px;
+}
+.controls {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+}
+.toggle-slip {
+  margin-left: 5px;
+  height: fit-content;
+}
+
+.url {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
 }

@@ -57,12 +57,12 @@ function createIFrame() {
   iFrame = document.createElement("iframe");
   iFrame.src = url;
   iFrame.id = "iframe";
-  iFrame.style = "width: 100%; margin-top: 100px;";
+  iFrame.style = "width: 100%; margin-top: 150px;";
   iFrame.frameBorder = 0;
   iFrame.allow = "clipboard-write";
   document.getElementById("header").after(iFrame);
   window.iFrameResize(
-    { log: false, checkOrigin: false, stickyHeaderHeight: 100 },
+    { log: false, checkOrigin: false, stickyHeaderHeight: 150 },
     "#iframe"
   ); // Onload logic for IFrame init
 }
