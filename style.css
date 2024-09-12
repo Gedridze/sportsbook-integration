@@ -21,6 +21,10 @@ iframe {
   grid-template-columns: 1fr 1fr;
   width: 190px;
 }
+.toggle-slip-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .controls {
   margin-top: 10px;
   font-size: 0.8rem;
@@ -28,7 +32,6 @@ iframe {
   flex-direction: row;
 }
 .toggle-slip {
-  margin-left: 5px;
   height: fit-content;
 }
 

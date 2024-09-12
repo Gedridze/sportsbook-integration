@@ -42,7 +42,12 @@
         <button onclick="setOdds('AMERICAN')">American</button>
         <button onclick="setOdds('HK')">Net decimal</button>
       </fieldset>
-      <button class="toggle-slip" onclick="toggleSlip()">Toggle Betting Slip</button>
+      <fieldset class="toggle-slip-container">
+        <legend>Slip Toggling</legend>
+        <button class="toggle-slip" onclick="toggleSlip()">Toggle Betting Slip</button>
+        <button class="toggle-slip" onclick="toggleSlip(true)">Show Betting Slip</button>
+        <button class="toggle-slip" onclick="toggleSlip(false)">Hide Betting Slip</button>
+      </fieldset>
       </div>
 
     </div>

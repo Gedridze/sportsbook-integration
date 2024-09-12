@@ -82,13 +82,15 @@ function setOdds(string) {
   }
 }
 
-function toggleSlip() {
+function toggleSlip(state) {
   const iFrame = document.getElementById("iframe").contentWindow;
   if (iFrame) {
     iFrame.postMessage(
       {
         topic: "toggleBettingSlip",
-        payload: {},
+        payload: {
+          state
+        },
       },
       "*"
     );
