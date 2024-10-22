@@ -60,7 +60,7 @@ function createIFrame() {
   iFrame.id = "iframe";
   iFrame.style = "width: 100%; margin-top: 150px;";
   iFrame.frameBorder = 0;
-  iFrame.allow = "clipboard-write";
+  iFrame.setAttribute('allow', "web-share; clipboard-write;");
   document.getElementById("header").after(iFrame);
   window.iFrameResize(
     { log: false, checkOrigin: false, stickyHeaderHeight: 150 },
