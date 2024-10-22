@@ -1,4 +1,5 @@
 window.addEventListener("message", (event) => {
+  if (!event.data.topic) return;
   console.log(event.data.topic, event.data.payload);
 	switch(event.data.topic) {
 		case 'redirect': 
