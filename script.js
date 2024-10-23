@@ -102,3 +102,16 @@ function toggleSlip(state) {
     );
   }
 }
+
+function openMyBets() {
+  const iFrame = document.getElementById("iframe").contentWindow;
+  if (iFrame) {
+    iFrame.postMessage(
+      {
+        topic: "openUserBets",
+      },
+      "*"
+    );
+  }
+}
+
