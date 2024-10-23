@@ -5,6 +5,10 @@ window.addEventListener("message", (event) => {
 		case 'redirect': 
 			redirectPage(event.data.payload.url);
 			break;
+    case 'bettingSlipBetsCount': {
+      document.getElementById('bet-count-value').innerText = event.data.payload.count;
+      break
+    }
 	}
 })
 
