@@ -7,6 +7,8 @@ body {
 }
 
 iframe {
+  top: 0;
+  position: sticky;
   width: 100%;
   height: 500px;
   border: none;
@@ -14,6 +16,10 @@ iframe {
 
 .header {
   position: fixed;
+}
+.wrapper {
+  display: block;
+  position: relative;
 }
 
 .odds-button-container{
