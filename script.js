@@ -103,6 +103,21 @@ function toggleSlip(state) {
   }
 }
 
+function toggleSearch(state) {
+  const iFrame = document.getElementById("iframe").contentWindow;
+  if (iFrame) {
+    iFrame.postMessage(
+      {
+        topic: "toggleSearch",
+        payload: {
+          state
+        },
+      },
+      "*"
+    );
+  }
+}
+
 function openMyBets() {
   const iFrame = document.getElementById("iframe").contentWindow;
   if (iFrame) {
