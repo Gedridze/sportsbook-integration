@@ -4,14 +4,34 @@ window.addEventListener("message", (event) => {
 	switch(event.data.topic) {
                 case 'heightChange':
                   updateIframeHeight(event.data.payload.height);
+
+  const iFrame = document.getElementById("iframe").contentWindow;
+  if (iFrame) {
+    iFrame.postMessage(
+      {
+        topic: "scroll",
+        payload: {
+          scrollDistance: -wrapper.getBoundingClientRect().top,
+        },
+      },
+      "*"
+    );
+  }
+
+
                         break;
 		case 'redirect': 
 			redirectPage(event.data.payload.url);
 			break;
-    case 'bettingSlipBetsCount': {
+    case 'bettingSlipBetsCount': 
       document.getElementById('bet-count-value').innerText = event.data.payload.count;
-      break
-    }
+      break;
+    
+case 'routeChange': 
+console.log('routeChange')
+console.log('to top')
+window.scrollTo({top: 0, behavior: 'instant'})
+break;
 	}
 })
 
@@ -41,6 +61,7 @@ document.onscroll = function () {
 function updateIframeHeight(height) {
   const iframe = document.getElementById("wrapper");
   iframe.style.height = `${height}px`;
+iframe.style.minHeight = '100dvh'
 }
 
 function createIFrame() {
