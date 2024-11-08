@@ -74,9 +74,7 @@ function createIFrame() {
 }
 
 function setOdds(string) {
-  const iFrame = document.getElementById("iframe").contentWindow;
-  if (iFrame) {
-    iFrame.postMessage(
+    window.postMessage(
       {
         topic: "oddsFormat",
         payload: {
@@ -84,8 +82,7 @@ function setOdds(string) {
         },
       },
       "*"
-    );
-  }
+    )
 }
 
 function toggleSlip(state) {
