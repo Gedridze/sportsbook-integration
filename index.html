@@ -50,7 +50,17 @@
         <button class="tobble-slip" onclick="openMyBets()">My Bets</button>
       </fieldset>
       <fieldset class="toggle-slip-container">
-        <legend>Search Toggling</legend>
+        <legend>Search</legend>
+          <div>
+            <input
+              style="width: 100%"
+              id="search-input"
+              type="text"
+              name="search"
+              value=""
+            />
+            <button type="button" onclick="submitSearch()">Search</button>
+          </div>
         <button class="toggle-slip" onclick="toggleSearch()">Toggle Search</button>
         <button class="toggle-slip" onclick="toggleSearch(true)">Show Search</button>
         <button class="toggle-slip" onclick="toggleSearch(false)">Hide Search</button>

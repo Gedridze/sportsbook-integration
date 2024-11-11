@@ -118,6 +118,23 @@ function toggleSearch(state) {
   }
 }
 
+function submitSearch() {
+  const value = document.getElementById("search-input").value;
+  const iFrame = document.getElementById("iframe").contentWindow;
+  if (iFrame) {
+    iFrame.postMessage(
+      {
+        topic: "toggleSearch",
+        payload: {
+          state: true,
+          query: value
+        },
+      },
+      "*"
+    );
+  }
+}
+
 function openMyBets() {
   const iFrame = document.getElementById("iframe").contentWindow;
   if (iFrame) {
