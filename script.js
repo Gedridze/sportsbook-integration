@@ -1,24 +1,33 @@
 window.addEventListener("message", (event) => {
   if (!event.data.topic) return;
   console.log(event.data.topic, event.data.payload);
-	switch(event.data.topic) {
-		case 'redirect': 
-			redirectPage(event.data.payload.url);
-			break;
+  switch (event.data.topic) {
+    case 'redirect':
+      redirectPage(event.data.payload.url);
+      break;
     case 'bettingSlipBetsCount': {
       document.getElementById('bet-count-value').innerText = event.data.payload.count;
       break
     }
-	}
+    case 'bettingSlipOpen': {
+      if (event.data.payload.state) {
+        document.getElementById('sticky-footer').style.display = 'none';
+      } else {
+
+        document.getElementById('sticky-footer').style.display = 'block';
+      }
+      break
+    }
+  }
 })
 
 function redirectPage(url) {
   window.location.href = url;
 }
 
-const clientUrl = "https://sportsbook.adv.bet/panel-dev";
+const clientUrl = "http://localhost:5173";
 const script = document.createElement("script");
-script.onload = function () {
+script.onload = function() {
   createIFrame();
 };
 
@@ -68,7 +77,7 @@ function createIFrame() {
   iFrame.setAttribute('allow', "web-share; clipboard-write;");
   document.getElementById("header").after(iFrame);
   window.iFrameResize(
-    { log: false, checkOrigin: false, stickyHeaderHeight: 150 },
+    { log: false, checkOrigin: false, stickyHeaderHeight: 150, stickyFooterHeight: 150 },
     "#iframe"
   ); // Onload logic for IFrame init
 }
@@ -145,5 +154,32 @@ function openMyBets() {
       "*"
     );
   }
+}
+
+function updateStickyFooterHeight(height) {
+  const iFrame = document.getElementById("iframe").contentWindow;
+  if (iFrame) {
+    iFrame.postMessage(
+      {
+        topic: "updateViewPortInfo",
+        payload: {
+          stickyFooterHeight: parseInt(height)
+        }
+      },
+      "*"
+    );
+  }
+}
+
+function toggleStickyFooterHeight() {
+  const footer = document.getElementById('sticky-footer')
+  const height = footer.style.height.split('px')[0];
+  if (height === '150') {
+    footer.style.height = '50px';
+    updateStickyFooterHeight(50)
+    return
+  }
+  footer.style.height = '150px';
+  updateStickyFooterHeight(150)
 }
 

@@ -31,7 +31,7 @@
       />
       <button onclick="createIFrame()">CHANGE URL</button>
     </div>
-      <div class="controls">
+      <div class="controls" style="display: flex; overflow: auto">
         
       <fieldset
         class="odds-button-container"
@@ -72,6 +72,12 @@
             <span id="bet-count-value">0</span>
           </div>
         </fieldset>
+        <fieldset>
+         <legend>ViewPort</legend> 
+          <div >
+            <button class="toggle-slip" onclick="toggleStickyFooterHeight()">Toggle Footer Height</button>
+          </div>
+        </fieldset>
       </div>
 
     </div>
@@ -80,6 +86,9 @@
       style="height: 250px; width: 100%; background-color: beige"
     >
       FOOTER
+    </div>
+    <div class="sticky-footer" id="sticky-footer" style="height: 150px">
+     STICKY FOOTER
     </div>
   </body>
 </html>
