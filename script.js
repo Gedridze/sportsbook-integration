@@ -25,7 +25,7 @@ function redirectPage(url) {
   window.location.href = url;
 }
 
-const clientUrl = "http://localhost:5173";
+const clientUrl = "https://sp-1507-sticky-footer.sportsbook-iframe.dev.advbet.com";
 const script = document.createElement("script");
 script.onload = function() {
   createIFrame();
