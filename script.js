@@ -25,14 +25,6 @@ function redirectPage(url) {
   window.location.href = url;
 }
 
-const clientUrl = "https://sp-1507-sticky-footer.sportsbook-iframe.dev.advbet.com";
-const script = document.createElement("script");
-script.onload = function() {
-  createIFrame();
-};
-
-script.src = `${clientUrl}/iframeResizer.min.js?${Date.now()}`;
-document.head.appendChild(script);
 function updateIframeHeight(height) {
   const iframe = document.getElementById("iframe");
   iframe.style.height = `${height}px`;
@@ -63,23 +55,30 @@ function handleScroll() {
 }
 
 function createIFrame() {
-  let iFrame = document.getElementById("iframe");
   const url = document.getElementById("link-input").value;
-  if (iFrame) {
+  const clientUrl = new URL(url).origin;
+  const script = document.createElement("script");
+  script.src = `${clientUrl}/iframeResizer.min.js?${Date.now()}`;
+  document.head.appendChild(script);
+  script.onload = function() {
+    let iFrame = document.getElementById("iframe");
+    if (iFrame) {
+      iFrame.src = url;
+      return;
+    }
+    iFrame = document.createElement("iframe");
     iFrame.src = url;
-    return;
-  }
-  iFrame = document.createElement("iframe");
-  iFrame.src = url;
-  iFrame.id = "iframe";
-  iFrame.style = "width: 100%; margin-top: 150px;";
-  iFrame.frameBorder = 0;
-  iFrame.setAttribute('allow', "web-share; clipboard-write;");
-  document.getElementById("header").after(iFrame);
-  window.iFrameResize(
-    { log: false, checkOrigin: false, stickyHeaderHeight: 150, stickyFooterHeight: 150 },
-    "#iframe"
-  ); // Onload logic for IFrame init
+    iFrame.id = "iframe";
+    iFrame.style = "width: 100%; margin-top: 150px;";
+    iFrame.frameBorder = 0;
+    iFrame.setAttribute('allow', "web-share; clipboard-write;");
+    document.getElementById("header").after(iFrame);
+    window.iFrameResize(
+      { log: false, checkOrigin: false, stickyHeaderHeight: 150, stickyFooterHeight: 150 },
+      "#iframe"
+    ); // Onload logic for IFrame init
+  };
+
 }
 
 function setOdds(string) {
@@ -183,3 +182,6 @@ function toggleStickyFooterHeight() {
   updateStickyFooterHeight(150)
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  createIFrame();
+})
