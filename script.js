@@ -55,10 +55,15 @@ function handleScroll() {
 }
 
 function createIFrame() {
+  const oldScript = document.getElementById('iframeResizer');
+  if (oldScript) {
+    oldScript.remove();
+  }
   const url = document.getElementById("link-input").value;
   const clientUrl = new URL(url).origin;
   const script = document.createElement("script");
   script.src = `${clientUrl}/iframeResizer.min.js?${Date.now()}`;
+  script.id = "iframeResizer";
   document.head.appendChild(script);
   script.onload = function() {
     let iFrame = document.getElementById("iframe");
