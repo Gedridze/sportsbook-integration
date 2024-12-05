@@ -79,7 +79,7 @@ function createIFrame() {
     iFrame.setAttribute('allow', "web-share; clipboard-write;");
     document.getElementById("header").after(iFrame);
     window.iFrameResize(
-      { log: false, checkOrigin: false, stickyHeaderHeight: 150, stickyFooterHeight: 150, originUrl: window.location.href },
+      { log: false, checkOrigin: false, stickyHeaderHeight: 150, stickyFooterHeight: 150, locationUrl: window.location.href },
       "#iframe"
     ); // Onload logic for IFrame init
   };
