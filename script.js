@@ -83,7 +83,24 @@ function createIFrame() {
       "#iframe"
     ); // Onload logic for IFrame init
   };
+}
 
+function sendUserMessage() {
+  const iFrame = document.getElementById("iframe").contentWindow;
+  console.log(
+    {
+      topic: "updateUserData",
+    },
+  )
+
+  if (iFrame) {
+    iFrame.postMessage(
+      {
+        topic: "updateUserData",
+      },
+      "*"
+    );
+  }
 }
 
 function setOdds(string) {
