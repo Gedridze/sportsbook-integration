@@ -218,7 +218,6 @@ function selectLandingPage() {
         "*"
     );
     iFrame.style.display = 'none';
-
   }
 }
 
@@ -236,7 +235,6 @@ function selectSportsPage() {
         "*"
     );
     iFrame.style.display = 'inline';
-
   }
 }
 
