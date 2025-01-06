@@ -210,7 +210,7 @@ function selectLandingPage() {
   if (iFrame) {
     iFrame.contentWindow.postMessage(
         {
-          topic: "iframeVisibilityChange",
+          topic: "suspendIframe",
           payload: {
             state: false
           }
@@ -227,7 +227,7 @@ function selectSportsPage() {
   if (iFrame) {
     iFrame.contentWindow.postMessage(
         {
-          topic: "iframeVisibilityChange",
+          topic: "suspendIframe",
           payload: {
             state: true
           }
