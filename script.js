@@ -204,6 +204,40 @@ function toggleStickyFooterHeight() {
   updateStickyFooterHeight(150)
 }
 
+function selectLandingPage() {
+  const iFrame = document.getElementById("iframe");
+
+  if (iFrame) {
+    iFrame.contentWindow.postMessage(
+        {
+          topic: "suspendIframe",
+          payload: {
+            state: false
+          }
+        },
+        "*"
+    );
+    iFrame.style.display = 'none';
+  }
+}
+
+function selectSportsPage() {
+  const iFrame = document.getElementById("iframe");
+
+  if (iFrame) {
+    iFrame.contentWindow.postMessage(
+        {
+          topic: "suspendIframe",
+          payload: {
+            state: true
+          }
+        },
+        "*"
+    );
+    iFrame.style.display = 'inline';
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   createIFrame();
 })
