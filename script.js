@@ -212,7 +212,7 @@ function selectLandingPage() {
         {
           topic: "suspendIframe",
           payload: {
-            state: false
+            state: true
           }
         },
         "*"
@@ -229,7 +229,7 @@ function selectSportsPage() {
         {
           topic: "suspendIframe",
           payload: {
-            state: true
+            state: false
           }
         },
         "*"
