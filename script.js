@@ -103,6 +103,21 @@ function sendUserMessage() {
   }
 }
 
+function sendRedirectMessage(url) {
+  const iFrame = document.getElementById("iframe").contentWindow;
+  if (iFrame) {
+    iFrame.postMessage(
+      {
+        topic: "redirectTo",
+        payload: {
+          url,
+        },
+      },
+      "*"
+    );
+  }
+}
+
 function setOdds(string) {
   const iFrame = document.getElementById("iframe").contentWindow;
   if (iFrame) {
