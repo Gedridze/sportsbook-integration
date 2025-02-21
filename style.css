@@ -12,6 +12,12 @@ iframe {
   border: none;
 }
 
+@media screen and (max-width: 1024px) {
+  iframe {
+    min-height: calc(100vh - 150px - 67px);
+  }
+}
+
 .header {
   position: fixed;
 }
