@@ -79,7 +79,7 @@ function createIFrame() {
     iFrame.setAttribute('allow', "web-share; clipboard-write;");
     document.getElementById("header").after(iFrame);
     window.iFrameResize(
-      { log: false, checkOrigin: false, offsetTop: 67, stickyHeaderHeight: 150, stickyFooterHeight: 150, locationUrl: window.location.href },
+      { log: false, checkOrigin: false, offsetTop: 67, stickyHeaderHeight: 150, stickyFooterHeight: 50, locationUrl: window.location.href },
       "#iframe"
     ); // Onload logic for IFrame init
   };
@@ -255,4 +255,23 @@ function selectSportsPage() {
 
 document.addEventListener("DOMContentLoaded", () => {
   createIFrame();
+  toggleStickyFooterHeight();
 })
+
+function toggleRenderMode() {
+  const input = document.getElementById("link-input");
+  const currentUrl = new URL(input.value);
+
+  const isDeviceHeightMode = currentUrl.searchParams.get("renderMode") === "deviceHeight";
+
+  if (isDeviceHeightMode) {
+    currentUrl.searchParams.delete("renderMode");
+  } else {
+    currentUrl.searchParams.set("renderMode", "deviceHeight");
+  }
+
+  input.value = currentUrl.toString();
+
+  createIFrame();
+  scrollTo(0, 0);
+}
