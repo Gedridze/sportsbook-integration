@@ -10,102 +10,104 @@
     <script src="./script.js"></script>
   </head>
   <body style="width: auto; margin: 0">
-    <div style="height: 67px;"></div>
-    <h1 style="text-align: center; width: 100%; position: fixed; top: 145px; z-index: -1;">offsetTop</h1>
-    <div
-      class="header"
-      style="
-        height: 150px;
-        width: 100%;
-        background-color: coral;
-        position: fixed;
-        top: 0;
-      "
-      id="header"
-    >
-    <div class="url">
-      
-      <input
-        style="width: 100%"
-        id="link-input"
-        type="text"
-        name="link"
-        value="http://localhost:5173/?sessionId=foo&orgUuid=17278873-1ab7-fc60-4603-d239f3e216bb#/special"
-      />
-      <button onclick="createIFrame()">CHANGE URL</button>
-    </div>
-      <div class="controls" style="display: flex; overflow: auto">
-        
-      <fieldset
-        class="odds-button-container"
+    <div class="app-wrapper">
+      <div style="height: 67px;"></div>
+      <h1 style="text-align: center; width: 100%; position: fixed; top: 145px; z-index: -1;">offsetTop</h1>
+      <div
+        class="header"
+        style="
+          height: 150px;
+          width: 100%;
+          background-color: coral;
+          position: fixed;
+          top: 0;
+        "
+        id="header"
       >
-        <legend>Odds Format</legend>
-        <button onclick="setOdds('DECIMAL')">Decimal</button>
-        <button onclick="setOdds('FRACTIONAL')">Fractional</button>
-        <button onclick="setOdds('AMERICAN')">American</button>
-        <button onclick="setOdds('HK')">Net decimal</button>
-      </fieldset>
-      <fieldset class="toggle-slip-container">
-        <legend>Slip Toggling</legend>
-        <button class="toggle-slip" onclick="toggleSlip()">Toggle Betting Slip</button>
-        <button class="toggle-slip" onclick="toggleSlip(true)">Show Betting Slip</button>
-        <button class="toggle-slip" onclick="toggleSlip(false)">Hide Betting Slip</button>
-        <button class="tobble-slip" onclick="openMyBets()">My Bets</button>
-      </fieldset>
-      <fieldset class="toggle-slip-container">
-        <legend>Search</legend>
-          <div>
-            <input
-              style="width: 100%"
-              id="search-input"
-              type="text"
-              name="search"
-              value=""
-            />
-            <button type="button" onclick="submitSearch()">Search</button>
-          </div>
-        <button class="toggle-slip" onclick="toggleSearch()">Toggle Search</button>
-        <button class="toggle-slip" onclick="toggleSearch(true)">Show Search</button>
-        <button class="toggle-slip" onclick="toggleSearch(false)">Hide Search</button>
-      </fieldset>
-        <fieldset>
-         <legend>Info</legend> 
-          <div id="bet-count">
-            <span>Bet Count: </span>
-            <span id="bet-count-value">0</span>
-          </div>
-        </fieldset>
-        <fieldset>
-         <legend>ViewPort</legend> 
-          <div >
-            <button class="toggle-slip" onclick="toggleStickyFooterHeight()">Toggle Footer Height</button>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Actions</legend>
-           <div >
-             <button onclick="sendUserMessage()">Send Message</button>
-            <button onclick="sendRedirectMessage('/')">Go Home</button>
-           </div>
-         </fieldset>
-        <fieldset>
-          <legend>IFrame Visibility</legend>
-           <div>
-             <button type="button" onclick="selectLandingPage()">Landing Page</button>
-             <button type="button" onclick="selectSportsPage()">Sports</button>
-           </div>
-         </fieldset>
+      <div class="url">
+        
+        <input
+          style="width: 100%"
+          id="link-input"
+          type="text"
+          name="link"
+          value="http://localhost:5173/?sessionId=foo&orgUuid=17278873-1ab7-fc60-4603-d239f3e216bb#/special"
+        />
+        <button onclick="createIFrame()">CHANGE URL</button>
       </div>
-
-    </div>
-    <div
-      class="footer"
-      style="height: 250px; width: 100%; background-color: beige"
-    >
-      FOOTER
-    </div>
-    <div class="sticky-footer" id="sticky-footer" style="height: 150px">
-     STICKY FOOTER
+        <div class="controls" style="display: flex; overflow: auto">
+          
+        <fieldset
+          class="odds-button-container"
+        >
+          <legend>Odds Format</legend>
+          <button onclick="setOdds('DECIMAL')">Decimal</button>
+          <button onclick="setOdds('FRACTIONAL')">Fractional</button>
+          <button onclick="setOdds('AMERICAN')">American</button>
+          <button onclick="setOdds('HK')">Net decimal</button>
+        </fieldset>
+        <fieldset class="toggle-slip-container">
+          <legend>Slip Toggling</legend>
+          <button class="toggle-slip" onclick="toggleSlip()">Toggle Betting Slip</button>
+          <button class="toggle-slip" onclick="toggleSlip(true)">Show Betting Slip</button>
+          <button class="toggle-slip" onclick="toggleSlip(false)">Hide Betting Slip</button>
+          <button class="tobble-slip" onclick="openMyBets()">My Bets</button>
+        </fieldset>
+        <fieldset class="toggle-slip-container">
+          <legend>Search</legend>
+            <div>
+              <input
+                style="width: 100%"
+                id="search-input"
+                type="text"
+                name="search"
+                value=""
+              />
+              <button type="button" onclick="submitSearch()">Search</button>
+            </div>
+          <button class="toggle-slip" onclick="toggleSearch()">Toggle Search</button>
+          <button class="toggle-slip" onclick="toggleSearch(true)">Show Search</button>
+          <button class="toggle-slip" onclick="toggleSearch(false)">Hide Search</button>
+        </fieldset>
+          <fieldset>
+          <legend>Info</legend> 
+            <div id="bet-count">
+              <span>Bet Count: </span>
+              <span id="bet-count-value">0</span>
+            </div>
+          </fieldset>
+          <fieldset>
+          <legend>ViewPort</legend> 
+            <div class="toggle-slip-container">
+              <button class="toggle-slip" onclick="toggleStickyFooterHeight()">Toggle Footer Height</button>
+              <button class="toggle-slip" onclick="toggleRenderModeAndCreateIframe()">Toggle Render Mode</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Actions</legend>
+            <div >
+              <button onclick="sendUserMessage()">Send Message</button>
+              <button onclick="sendRedirectMessage('/')">Go Home</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>IFrame Visibility</legend>
+            <div>
+              <button type="button" onclick="selectLandingPage()">Landing Page</button>
+              <button type="button" onclick="selectSportsPage()">Sports</button>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="footer"
+        style="height: 250px; width: 100%; background-color: beige"
+      >
+        FOOTER
+      </div>
+      <div class="sticky-footer" id="sticky-footer" style="height: 50px">
+        STICKY FOOTER
+      </div>
     </div>
   </body>
 </html>
