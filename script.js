@@ -1,3 +1,8 @@
+const RenderMode = {
+  DEVICE_HEIGHT: 'deviceHeight',
+  FULL_HEIGHT: 'fullHeight',
+};
+
 window.addEventListener("message", (event) => {
   if (!event.data.topic) return;
   console.log(event.data.topic, event.data.payload);
@@ -20,6 +25,11 @@ window.addEventListener("message", (event) => {
     }
   }
 })
+
+function isRenderModeEnabled(urlInput, mode = RenderMode.FULL_HEIGHT) {
+  const url = typeof urlInput === 'string' ? new URL(urlInput) : urlInput;
+  return url.searchParams.get("renderMode") === mode;
+}
 
 function redirectPage(url) {
   window.location.href = url;
@@ -54,12 +64,36 @@ function handleScroll() {
   sendViewPortInfo();
 }
 
+function toggleRenderMode(urlString, mode = RenderMode.DEVICE_HEIGHT) {
+  const url = new URL(urlString);
+  if (isRenderModeEnabled(url, mode)) {
+    url.searchParams.delete("renderMode");
+  } else {
+    url.searchParams.set("renderMode", mode);
+  }
+  return url.toString();
+}
+
+function toggleRenderModeClasses(currentUrl) {
+  const renderModeDeviceHeight = isRenderModeEnabled(currentUrl, RenderMode.DEVICE_HEIGHT);
+  const documentNode = document.documentElement;
+  const footer = document.getElementById('sticky-footer');
+  if (renderModeDeviceHeight) {
+    documentNode.classList.add('device-height');
+  } else {
+    documentNode.classList.remove('device-height');
+  }
+
+  footer.style.height = '50px';//reset back to default
+}
+
 function createIFrame() {
   const oldScript = document.getElementById('iframeResizer');
   if (oldScript) {
     oldScript.remove();
   }
   const url = document.getElementById("link-input").value;
+  toggleRenderModeClasses(url);
   const clientUrl = new URL(url).origin;
   const script = document.createElement("script");
   script.src = `${clientUrl}/iframeResizer.min.js?${Date.now()}`;
@@ -255,23 +289,11 @@ function selectSportsPage() {
 
 document.addEventListener("DOMContentLoaded", () => {
   createIFrame();
-  toggleStickyFooterHeight();
 })
 
-function toggleRenderMode() {
+function toggleRenderModeAndCreateIframe() {
   const input = document.getElementById("link-input");
-  const currentUrl = new URL(input.value);
-
-  const isDeviceHeightMode = currentUrl.searchParams.get("renderMode") === "deviceHeight";
-
-  if (isDeviceHeightMode) {
-    currentUrl.searchParams.delete("renderMode");
-  } else {
-    currentUrl.searchParams.set("renderMode", "deviceHeight");
-  }
-
-  input.value = currentUrl.toString();
-
+  input.value = toggleRenderMode(input.value, RenderMode.DEVICE_HEIGHT);
   createIFrame();
   scrollTo(0, 0);
 }
