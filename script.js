@@ -23,6 +23,14 @@ window.addEventListener("message", (event) => {
       }
       break
     }
+    case 'parentScroll': {
+      if(event.data.payload?.enable) {
+        document.documentElement.classList.remove('device-height')
+      } else {
+        document.documentElement.classList.add('device-height')
+      }
+      break
+    }
   }
 })
 
