@@ -23,7 +23,7 @@ window.addEventListener("message", (event) => {
       }
       break
     }
-    case 'parentScroll': {
+    case 'enableParentScroll': {
       if(event.data.payload?.enable) {
         document.documentElement.classList.remove('device-height')
       } else {
