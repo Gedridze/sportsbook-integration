@@ -21,8 +21,10 @@ window.addEventListener("message", (event) => {
     case 'enableParentScroll': {
       if(event.data.payload?.enable) {
         document.documentElement.classList.remove('device-height')
+        document.documentElement.style.overscrollBehaviorY = 'none';
       } else {
         document.documentElement.classList.add('device-height')
+        document.documentElement.style.removeProperty('overscroll-behavior-y');
       }
       break
     }
