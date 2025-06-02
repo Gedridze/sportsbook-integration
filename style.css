@@ -59,15 +59,6 @@ fieldset {
   min-width: 250px;
 }
 
-html.device-height,
 .device-height body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-}
-
-html.device-height .app-wrapper {
-  overflow-y: hidden;
-  height: 100%;
+  position: fixed;
 }
